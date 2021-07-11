@@ -32,7 +32,7 @@ class _LoginState extends State<Login> {
             children: [
               Row(
                 children: [
-                  Text("Sign In",style: TextStyle(color: Colors.white,fontSize: 30, fontWeight: FontWeight.bold),),
+                  RotatedBox(quarterTurns: 3,  child: Text("Sign In",style: TextStyle(color: Colors.white,fontSize: 30, fontWeight: FontWeight.bold),)),
                   Text("A world of possibilities awaits",style: TextStyle(color: Colors.white,fontSize: 15, fontWeight: FontWeight.bold),),
                 ],
               ),
