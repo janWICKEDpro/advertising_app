@@ -1,9 +1,11 @@
 import 'dart:ui';
 
+import 'package:advertise/Screens/authentication/authProps.dart';
 import 'package:flutter/material.dart';
 
 class Login extends StatefulWidget {
-  const Login({ Key? key }) : super(key: key);
+  final Function? toggle;
+  const Login({ Key? key,this.toggle }) : super(key: key);
 
   @override
   _LoginState createState() => _LoginState();
@@ -11,6 +13,24 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
   @override
+  void initState(){
+    super.initState();
+
+    emailFocus =FocusNode();
+    passwordFocus =FocusNode();
+    
+    emailControllerLogin =TextEditingController();
+    passwordControllerLogin =TextEditingController();
+  }
+
+  void dispose(){
+    emailFocus!.dispose();
+    passwordFocus!.dispose();
+
+    emailControllerLogin!.dispose();
+    passwordControllerLogin!.dispose();
+    super.dispose();
+  }
   Widget build(BuildContext context) {
   var height = MediaQuery.of(context).size.height.toDouble();
   
@@ -50,6 +70,7 @@ class _LoginState extends State<Login> {
                     ],
                   ),
                   Form(
+                    key: loginKey,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -57,29 +78,49 @@ class _LoginState extends State<Login> {
                           padding: const EdgeInsets.only(left: 20.0,right: 20,top: 10),
                           child: TextFormField(
                             cursorColor: Colors.white,
-                            
+                            controller: emailControllerLogin,
+                            focusNode: emailFocus,
+                            autovalidateMode: AutovalidateMode.onUserInteraction,
+                            onFieldSubmitted: (_){
+                                  FocusScope.of(context).requestFocus(passwordFocus);
+                            },
+                            validator: (email){
+                              RegExp exp = RegExp(
+            r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
+        if (email!.trim().isEmpty) return "Please enter email";
+        if (exp.hasMatch(email))
+          return null;
+        else
+          return "Enter a valid email";
+                            },
                             decoration: InputDecoration(
                               enabledBorder: OutlineInputBorder(borderSide: BorderSide.none, gapPadding: 0.0),
                               labelText: 'email',
-                              labelStyle: TextStyle(color: Colors.white),
-                              prefixIcon: Icon(Icons.email,color: Colors.white,size: 20,)
+                              labelStyle: TextStyle(color: Colors.white54),
+                              prefixIcon: Icon(Icons.email,color: Colors.white54,size: 20,)
                             ),
                           ),
                         ),
                         Padding(
                           padding: const EdgeInsets.only(left: 20.0,right: 20, top: 10),
                           child: TextFormField(
+                            validator: (password){
+                              if(password!.isEmpty){
+                                return "Please enter your password";
+                              }
+                            },
+                            controller: passwordControllerLogin,
+                            focusNode: passwordFocus,
+                            autovalidateMode: AutovalidateMode.onUserInteraction,
                             cursorColor: Colors.white,
-                              keyboardType: TextInputType.emailAddress,
-                              
+                            keyboardType: TextInputType.emailAddress,                             
                              decoration: InputDecoration(
-                              
                               enabledBorder: OutlineInputBorder(borderSide: BorderSide.none, gapPadding: 0.0),
                               labelText: 'password',
-                              labelStyle: TextStyle(color: Colors.white,fontSize: 15),
-                              prefixIcon: Icon(Icons.lock_outline_rounded,color: Colors.white,size: 20,),
-                              suffixIcon:  Icon(Icons.visibility_off,color: Colors.white,size:20 ) ,
-                            // suffix:  InkWell(),
+                              labelStyle: TextStyle(color: Colors.white54,fontSize: 15),
+                              prefixIcon: Icon(Icons.lock_outline_rounded,color: Colors.white54,size: 20,),
+                              suffixIcon:  Icon(Icons.visibility_off,color: Colors.white54,size:20 ) ,
+                            
                             ),
                           ),
                         ),
@@ -88,7 +129,7 @@ class _LoginState extends State<Login> {
                           child: Align(
                             alignment: Alignment.bottomRight,
                             child: Column(children: [
-                            Text('Forgot Password?', style: TextStyle(color: Colors.white),),
+                            Text('Forgot Password?', style: TextStyle(color: Colors.white54),),
                             SizedBox(height: 40,),
                             AnimatedContainer(
                               width: 80,
@@ -116,11 +157,16 @@ class _LoginState extends State<Login> {
                       padding: const EdgeInsets.all(12.0),
                       child: Align(
                           alignment: Alignment.bottomCenter,
-                          child: Row(
-                            children: [
-                              Text("Your First Time ? ",style: TextStyle(color: Colors.white54),),
-                              Text("Sign Up",style: TextStyle(color: Colors.white)),
-                            ],
+                          child: InkWell(
+                            onTap: (){
+                                 widget.toggle!();
+                            },
+                            child: Row(
+                              children: [
+                                Text("Your First Time ? ",style: TextStyle(color: Colors.white54),),
+                                Text("Sign Up",style: TextStyle(color: Colors.white)),
+                              ],
+                            ),
                           ),
                       ),
                     )

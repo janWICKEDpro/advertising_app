@@ -1,5 +1,6 @@
 import 'package:advertise/Screens/authentication/login.dart';
 import 'package:advertise/Screens/authentication/signIn.dart';
+import 'package:advertise/Screens/authentication/switch.dart';
 import 'package:flutter/material.dart';
 
 import 'package:advertise/colorConstants.dart';
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         color: primaryColor,
-        home: SignUp(),
+        home: Authenticate(),
     );
   }
 }
