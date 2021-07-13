@@ -12,6 +12,11 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+
+  var containerWidth = 80.0;
+  double containerHeight = 30.0;
+  double radiusValue= 9.0;
+  bool isLoading = false;
   @override
   void initState(){
     super.initState();
@@ -31,8 +36,10 @@ class _LoginState extends State<Login> {
     passwordControllerLogin!.dispose();
     super.dispose();
   }
+
   Widget build(BuildContext context) {
   var height = MediaQuery.of(context).size.height.toDouble();
+ 
   
     return Scaffold(
         body: Center(
@@ -119,7 +126,7 @@ class _LoginState extends State<Login> {
                               labelText: 'password',
                               labelStyle: TextStyle(color: Colors.white54,fontSize: 15),
                               prefixIcon: Icon(Icons.lock_outline_rounded,color: Colors.white54,size: 20,),
-                              suffixIcon:  Icon(Icons.visibility_off,color: Colors.white54,size:20 ) ,
+                            
                             
                             ),
                           ),
@@ -131,23 +138,38 @@ class _LoginState extends State<Login> {
                             child: Column(children: [
                             Text('Forgot Password?', style: TextStyle(color: Colors.white54),),
                             SizedBox(height: 40,),
-                            AnimatedContainer(
-                              width: 80,
-                              
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.all(Radius.circular(9))
+                            InkWell(
+                              onTap: (){
+                                setState(() {
+                                  if(loginKey.currentState!.validate()){
+                                  isLoading =!isLoading;
+                                  }
+                                });
+                              },
+                              child: Container(
+                                width: containerWidth,
+                                height: 40,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.all(Radius.circular(radiusValue))
+                                ),
+                                 child: isLoading ? Center(
+                                   child: CircularProgressIndicator(
+                                     color:  Color(0xff207B6E) ,
+                                    
+                                     strokeWidth: 2.5,
+                                   ),
+                                 ) 
+                                 :  Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      Text("Ok",style: TextStyle(color: Color(0xff207B6E)),),
+                                      Icon(Icons.arrow_forward,color: Color(0xff207B6E),)
+                                    ]
                               ),
-                              
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  Text("Ok",style: TextStyle(color: Color(0xff207B6E)),),
-                                  Icon(Icons.arrow_forward,color: Color(0xff207B6E),)
-                                ],
                               ),
-                              duration: Duration(milliseconds: 100),),
+                            )
                           ],),),
                         )
                     ],
@@ -165,6 +187,7 @@ class _LoginState extends State<Login> {
                               children: [
                                 Text("Your First Time ? ",style: TextStyle(color: Colors.white54),),
                                 Text("Sign Up",style: TextStyle(color: Colors.white)),
+                          
                               ],
                             ),
                           ),
@@ -178,3 +201,7 @@ class _LoginState extends State<Login> {
     );
   }
 }
+
+
+
+                               

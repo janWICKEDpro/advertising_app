@@ -1,5 +1,6 @@
 import 'package:advertise/Screens/about.dart';
 import 'package:advertise/Screens/accountSettings.dart';
+import 'package:advertise/Screens/addProduct/addProduct.dart';
 import 'package:advertise/Screens/products.dart';
 import 'package:advertise/Screens/settings.dart';
 import 'package:advertise/colorConstants.dart';
@@ -95,7 +96,7 @@ class _MainViewState extends State<MainView> {
           )
         ],
         color: primaryColor
-      ), child: IconButton(icon: Icon(Icons.add) , onPressed: (){},color: Colors.white,iconSize: 35,)),
+      ), child: IconButton(icon: Icon(Icons.add) , onPressed: (){Navigator.of(context).push(MaterialPageRoute(builder: (context)=>AddProduct()));},color: Colors.white,iconSize: 35,)),
     );
   }
 }

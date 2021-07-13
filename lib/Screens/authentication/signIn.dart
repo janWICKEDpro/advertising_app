@@ -11,6 +11,9 @@ class SignUp extends StatefulWidget {
 
 class _SignUpState extends State<SignUp> {
   
+  bool isLoading =false;
+  var containerWidth = 80.0;
+  var radiusValue =9.0;
   @override
   void initState(){
     super.initState();
@@ -34,7 +37,7 @@ class _SignUpState extends State<SignUp> {
     emailFocusSignUp!.dispose();
     userNameFocusSignUp!.dispose();
     passwordFocusSignUp!.dispose();
-    confirmPasswordControllerSignUp!.dispose();
+    confirmPasswordFocusSignUP!.dispose();
     super.dispose();
   }
   Widget build(BuildContext context) {
@@ -188,22 +191,36 @@ class _SignUpState extends State<SignUp> {
                             child: Column(children: [
                            
                             SizedBox(height: 40,),
-                            AnimatedContainer(
-                              width: 80,
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.all(Radius.circular(9))
+                            InkWell(
+                              onTap: (){
+                                setState(() {
+                                  isLoading =!isLoading;
+                                });
+                              },
+                              child: Container(
+                                width: containerWidth,
+                                height: 40,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.all(Radius.circular(radiusValue))
+                                ),
+                                 child: isLoading ? Center(
+                                   child: CircularProgressIndicator(
+                                     color:  Color(0xff207B6E) ,
+                                    
+                                     strokeWidth: 2.5,
+                                   ),
+                                 ) 
+                                 :  Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      Text("Ok",style: TextStyle(color: Color(0xff207B6E)),),
+                                      Icon(Icons.arrow_forward,color: Color(0xff207B6E),)
+                                    ]
                               ),
-                              
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  Text("Ok",style: TextStyle(color: Color(0xff207B6E)),),
-                                  Icon(Icons.arrow_forward,color: Color(0xff207B6E),)
-                                ],
                               ),
-                              duration: Duration(milliseconds: 100),),
+                            )
                           ],),),
                         )
                     ],
