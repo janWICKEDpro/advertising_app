@@ -23,7 +23,7 @@ class AuthService{
       print(3);
       return null;
     }
-  }
+  } 
 
   //sign out 
 
