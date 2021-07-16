@@ -15,16 +15,5 @@ class AuthService{
   }
 
 
-  //register with email and password
-  Future registerEmailandPassword() async{
-    try{
-     // final user = await auth.R
-    }catch(e){
-      print(3);
-      return null;
-    }
-  } 
-
-  //sign out 
 
 }
