@@ -14,6 +14,9 @@ class AuthService{
       }
   }
 
+Stream  get authState {
+  return auth.authStateChanges();
+}
 
 
 }
