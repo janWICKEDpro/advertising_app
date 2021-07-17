@@ -13,23 +13,53 @@ class _AddProductState extends State<AddProduct> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(top:25.0),
-              child: Text("Add a Product",style: TextStyle(fontSize: 30)),
-            ),
-            Form(
-              child: Column(
-                children: [
-                  TextFormField(),
-                  TextFormField(),
-                  
-                  
-                ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(top:25.0),
+                child: Text("Add a Product",style: TextStyle(fontSize: 30)),
               ),
-            )
-          ],
+              Form(
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const  EdgeInsets.only(top:10.0,left: 10.0,right: 10.0),
+                      child: TextFormField(
+                        decoration: InputDecoration(
+                          labelText: "Title",
+                           border: OutlineInputBorder()
+                        )
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top:10.0,left: 10.0,right: 10.0),
+                      child: TextFormField(
+                        keyboardType: TextInputType.number,
+                        decoration: InputDecoration(labelText: "Price",
+                        border: OutlineInputBorder()
+                        ),
+                      ),
+                    ),
+                    Container(
+                       
+                      child: Padding(
+                        padding: const  EdgeInsets.only(top:10.0,left: 10.0,right: 10.0),
+                        child: TextField(
+                          maxLines: 10,
+                          decoration: InputDecoration(
+                            labelText: "Description ...",
+                            border: OutlineInputBorder()
+                            ),
+                        ),
+                      ),
+                    ),
+                    
+                  ],
+                ),
+              )
+            ],
+          ),
         ) ,
       ),
     );
