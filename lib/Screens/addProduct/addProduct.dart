@@ -1,4 +1,7 @@
+import 'package:advertise/Screens/addProduct/addImage.dart';
+import 'package:advertise/colorConstants.dart';
 import 'package:flutter/material.dart';
+
 
 
 class AddProduct extends StatefulWidget {
@@ -9,6 +12,7 @@ class AddProduct extends StatefulWidget {
 }
 
 class _AddProductState extends State<AddProduct> {
+ 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,6 +45,7 @@ class _AddProductState extends State<AddProduct> {
                         ),
                       ),
                     ),
+                   
                     Container(
                        
                       child: Padding(
@@ -55,6 +60,22 @@ class _AddProductState extends State<AddProduct> {
                       ),
                     ),
                     
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(right:8.0,top: 10.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                        ElevatedButton(
+                          child: Container(
+                            child: Text("Next"),
+                          ) , 
+                          onPressed: (){
+                            Navigator.of(context).push(MaterialPageRoute(builder: (context)=>ImageSelector()));
+                          },
+                      ),
                   ],
                 ),
               )
