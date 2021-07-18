@@ -1,5 +1,3 @@
-
-
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -14,10 +12,10 @@ class ImageSelector extends StatefulWidget {
 
 class _ImageSelectorState extends State<ImageSelector> {
   XFile? _image;
-  getImgaeFromGallery()async{
+  getImageFromGallery()async{
     ImagePicker _picker = ImagePicker();
     XFile? image = await _picker.pickImage(
-      source: ImageSource.gallery, imageQuality: 50);
+      source: ImageSource.gallery, imageQuality: 100);
 
       setState(() {
         _image = image;
@@ -36,7 +34,9 @@ class _ImageSelectorState extends State<ImageSelector> {
                 child: Text("Add the image of the product",style: TextStyle(fontSize: 20)),
               ),
               GestureDetector(
-                onTap: (){},
+                onTap: (){
+                  getImageFromGallery();
+                },
                 child: Container(
                         decoration: BoxDecoration(
                             color: Colors.grey[200],
@@ -65,13 +65,14 @@ class _ImageSelectorState extends State<ImageSelector> {
                     ElevatedButton(child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                       
                         Text("See Preview"),
-                         Icon(Icons.keyboard_arrow_right_outlined),
-                      ],
-                    ), onPressed: (){},)
-                  ],),
-                )
+                        Icon(Icons.keyboard_arrow_right_outlined),
+                       ],
+                     ), onPressed: (){ },
+                    )
+                  ],
+               ),
+            )
           ],
         ),
       ),
