@@ -23,6 +23,10 @@ class _ImageSelectorState extends State<ImageSelector> {
   }
 
   @override
+  void dispose(){
+  
+    super.dispose();
+  }
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
@@ -61,7 +65,9 @@ class _ImageSelectorState extends State<ImageSelector> {
                         Icon(Icons.keyboard_arrow_left_outlined),
                         Text("go back"),
                       ],
-                    ), onPressed: (){},),
+                    ), onPressed: (){
+                      Navigator.of(context).pop();
+                    },),
                     ElevatedButton(child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [

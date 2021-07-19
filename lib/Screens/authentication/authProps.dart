@@ -15,8 +15,10 @@ FocusNode? emailFocusSignUp;
 FocusNode? userNameFocusSignUp;
 FocusNode? passwordFocusSignUp;
 FocusNode? confirmPasswordFocusSignUP;
+FocusNode? contactSignUp;
 
 TextEditingController? emailControllerSignUp;
 TextEditingController? usernameControllerSignUp;
 TextEditingController? passwordControllerSignUp;
 TextEditingController? confirmPasswordControllerSignUp;
+TextEditingController? contactControllerSignUP;

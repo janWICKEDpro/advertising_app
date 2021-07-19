@@ -88,7 +88,7 @@ class _SignUpState extends State<SignUp> {
                             cursorColor: Colors.white,
                             autovalidateMode: AutovalidateMode.onUserInteraction,
                             onFieldSubmitted: (_){
-                              FocusScope.of(context).requestFocus(emailFocusSignUp);
+                              FocusScope.of(context).requestFocus(contactSignUp);
                             },
                             validator: (name){
                                 if(name!.length<3){
@@ -102,6 +102,33 @@ class _SignUpState extends State<SignUp> {
                             decoration: InputDecoration(
                               enabledBorder: OutlineInputBorder(borderSide: BorderSide.none, gapPadding: 0.0),
                               labelText: 'username',
+                              labelStyle: TextStyle(color: Colors.white54),
+                              prefixIcon: Icon(Icons.account_circle,color: Colors.white54,size: 20,)
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 20.0,right: 20,top: 5),
+                          child: TextFormField(
+                            keyboardType: TextInputType.number,
+                            cursorColor: Colors.white,
+                            autovalidateMode: AutovalidateMode.onUserInteraction,
+                            onFieldSubmitted: (_){
+                              FocusScope.of(context).requestFocus(emailFocusSignUp);
+                            },
+                            
+                            validator: (contact){
+                                if(contact!.isEmpty){
+                                  return 'enter your whatsapp number';
+                                }else if(contact.length>9 || contact.length<9){
+                                  return 'phone number should be 9 digits';
+                                }
+                            },
+                            focusNode: contactSignUp,
+                            controller: contactControllerSignUP,
+                            decoration: InputDecoration(
+                              enabledBorder: OutlineInputBorder(borderSide: BorderSide.none, gapPadding: 0.0),
+                              labelText: 'WhatsApp contact',
                               labelStyle: TextStyle(color: Colors.white54),
                               prefixIcon: Icon(Icons.account_circle,color: Colors.white54,size: 20,)
                             ),

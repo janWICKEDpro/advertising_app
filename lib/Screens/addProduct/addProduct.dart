@@ -33,7 +33,12 @@ class _AddProductState extends State<AddProduct> {
                         decoration: InputDecoration(
                           labelText: "Title",
                            border: OutlineInputBorder()
-                        )
+                        ),
+                         validator: (title){
+                          if(title!.isEmpty){
+                            return "Enter a price for the product";
+                          }
+                        },
                       ),
                     ),
                     Padding(
@@ -41,8 +46,14 @@ class _AddProductState extends State<AddProduct> {
                       child: TextFormField(
                         keyboardType: TextInputType.number,
                         decoration: InputDecoration(labelText: "Price",
-                        border: OutlineInputBorder()
+                        border: OutlineInputBorder(),
+                        
                         ),
+                        validator: (price){
+                          if(price!.isEmpty){
+                            return "Enter a price for the product";
+                          }
+                        },
                       ),
                     ),
                    
