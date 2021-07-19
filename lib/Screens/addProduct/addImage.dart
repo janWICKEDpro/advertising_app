@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:advertise/Screens/addProduct/previewAdvert.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -74,7 +75,9 @@ class _ImageSelectorState extends State<ImageSelector> {
                         Text("See Preview"),
                         Icon(Icons.keyboard_arrow_right_outlined),
                        ],
-                     ), onPressed: (){ },
+                     ), onPressed: (){
+                       Navigator.of(context).push(MaterialPageRoute(builder: (context)=>PreviewAdvert()));
+                      },
                     )
                   ],
                ),
