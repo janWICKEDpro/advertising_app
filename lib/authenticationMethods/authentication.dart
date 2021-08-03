@@ -18,5 +18,12 @@ Stream  get authState {
   return auth.authStateChanges();
 }
 
+ Future logout(){
+  try{
+    auth.signOut();
+  }catch(e){
+   print(e) 
+  }
+ }
 
 }
