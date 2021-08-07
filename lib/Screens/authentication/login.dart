@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:advertise/Screens/authentication/authProps.dart';
+import 'package:advertise/authenticationMethods/authentication.dart';
 import 'package:flutter/material.dart';
 
 class Login extends StatefulWidget {
@@ -143,7 +144,7 @@ class _LoginState extends State<Login> {
                                 setState(() {
                                   if(loginKey.currentState!.validate()){
                                   isLoading =!isLoading;
-                                  AuthService().
+                                  AuthService().signInWithEmailPassword(email: emailControllerLogin!.text, password: passwordControllerLogin!.text);
                                   }
                                 });
                               },

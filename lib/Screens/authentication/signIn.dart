@@ -1,4 +1,5 @@
 import 'package:advertise/Screens/authentication/authProps.dart';
+import 'package:advertise/authenticationMethods/authentication.dart';
 import 'package:flutter/material.dart';
 
 class SignUp extends StatefulWidget {
@@ -216,12 +217,15 @@ class _SignUpState extends State<SignUp> {
                           child: Align(
                             alignment: Alignment.bottomRight,
                             child: Column(children: [
-                           
+                           //create account with email n password
                             SizedBox(height: 40,),
                             InkWell(
                               onTap: (){
                                 setState(() {
-                                  isLoading =!isLoading;
+                                  if(signUpKey.currentState!.validate()){
+                                    isLoading =!isLoading;
+                                    AuthService().createAccount(name:usernameControllerSignUp!.text , email: emailControllerSignUp!.text, password: passwordControllerSignUp!.text);
+                                  }
                                 });
                               },
                               child: Container(
