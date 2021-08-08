@@ -1,7 +1,7 @@
 import 'package:advertise/Screens/addProduct/addImage.dart';
 import 'package:advertise/colorConstants.dart';
 import 'package:flutter/material.dart';
-
+import 'addFormprops.dart';
 
 
 class AddProduct extends StatefulWidget {
@@ -25,11 +25,13 @@ class _AddProductState extends State<AddProduct> {
                 child: Text("Add a Product",style: TextStyle(fontSize: 30)),
               ),
               Form(
+                key: addProdKey,
                 child: Column(
                   children: [
                     Padding(
                       padding: const  EdgeInsets.only(top:10.0,left: 10.0,right: 10.0),
                       child: TextFormField(
+                        controller: titleController,
                         decoration: InputDecoration(
                           labelText: "Title",
                            border: OutlineInputBorder()
@@ -44,6 +46,7 @@ class _AddProductState extends State<AddProduct> {
                     Padding(
                       padding: const EdgeInsets.only(top:10.0,left: 10.0,right: 10.0),
                       child: TextFormField(
+                        controller: priceController,
                         keyboardType: TextInputType.number,
                         decoration: InputDecoration(labelText: "Price",
                         border: OutlineInputBorder(),
@@ -62,6 +65,7 @@ class _AddProductState extends State<AddProduct> {
                       child: Padding(
                         padding: const  EdgeInsets.only(top:10.0,left: 10.0,right: 10.0),
                         child: TextField(
+                          controller: descriptionController,
                           maxLines: 10,
                           decoration: InputDecoration(
                             labelText: "Description ...",
