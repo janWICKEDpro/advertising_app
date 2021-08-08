@@ -42,7 +42,11 @@ class _ImageSelectorState extends State<ImageSelector> {
                 onTap: (){
                   getImageFromGallery();
                 },
-                child: Container(
+                child: 
+                _image==null? Image.asset(
+                  _image!.path
+                ) :
+                Container(
                         decoration: BoxDecoration(
                             color: Colors.grey[200],
                            ),
