@@ -3,6 +3,7 @@ import 'package:advertise/Screens/accountSettings.dart';
 import 'package:advertise/Screens/addProduct/addProduct.dart';
 import 'package:advertise/Screens/products.dart';
 import 'package:advertise/Screens/settings.dart';
+import 'package:advertise/authenticationMethods/authentication.dart';
 import 'package:advertise/colorConstants.dart';
 import 'package:flutter/material.dart';
 import 'package:advertise/objects/categoriesObjects.dart';
@@ -42,6 +43,9 @@ class _MainViewState extends State<MainView> {
             child: Align(
               alignment: Alignment.bottomCenter,
               child: ListTile(
+              onTap: (){
+                AuthService().logout();
+              },
               leading: Icon(Icons.logout,color: primaryColor,),
               title: Text("Logout"),
               ),
