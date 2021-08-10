@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class DatabaseMethods{
 
 //add user to database
@@ -5,7 +7,7 @@ Future addUser()async{
 
 }
 
-  // store image to database
+// store image to database
   Future addProduct()async{
 
   }

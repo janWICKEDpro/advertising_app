@@ -14,6 +14,7 @@ class AuthService{
       final user = await auth.createUserWithEmailAndPassword(email: email, password: password);
 
       //add user to db;
+      DatabaseMethods.addUser();
       return true;
     }catch(e){
       return false;
