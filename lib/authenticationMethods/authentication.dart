@@ -1,3 +1,4 @@
+import 'package:advertise/databaseService/databaseService.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthService{

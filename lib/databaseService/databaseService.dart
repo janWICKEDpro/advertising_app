@@ -3,7 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 class DatabaseMethods{
 
 //add user to database
-Future addUser()async{
+static Future addUser()async{
 
 }
 
