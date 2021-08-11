@@ -224,7 +224,7 @@ class _SignUpState extends State<SignUp> {
                                 setState(() {
                                   if(signUpKey.currentState!.validate()){
                                     isLoading =!isLoading;
-                                    AuthService().createAccount(name:usernameControllerSignUp!.text , email: emailControllerSignUp!.text, password: passwordControllerSignUp!.text);
+                                    AuthService().createAccount(name:usernameControllerSignUp!.text , email: emailControllerSignUp!.text, password: passwordControllerSignUp!.text,contact: contactControllerSignUP.),
                                   }
                                 });
                               },

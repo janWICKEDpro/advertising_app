@@ -7,16 +7,16 @@ class DatabaseMethods{
 static Future addUser({
   required String username,
   required String email,
-  required String password,
+  required int contact,
   required String id,
 }
 )async{
 final docRef= firebase.collection('User').doc(id);
 await docRef.set(
   <String, dynamic>{
-    
+
   }
-)
+);
 
 }
 

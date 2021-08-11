@@ -10,12 +10,13 @@ class AuthService{
     required String name,
     required String email,
     required String password,
+    required int contact,
   }) async{
     try {
       final user = await auth.createUserWithEmailAndPassword(email: email, password: password);
 
       //add user to db;
-      DatabaseMethods.addUser();
+      DatabaseMethods.addUser(username:name, email: email,contact:contact , id: user.user!.uid );
       return true;
     }catch(e){
       return false;
