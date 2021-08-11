@@ -1,14 +1,27 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+final firebase = FirebaseFirestore.instance;
 
 class DatabaseMethods{
 
 //add user to database
-static Future addUser()async{
+static Future addUser({
+  required String username,
+  required String email,
+  required String password,
+  required String id,
+}
+)async{
+final docRef= firebase.collection('User').doc(id);
+await docRef.set(
+  <String, dynamic>{
+    
+  }
+)
 
 }
 
 // store image to database
-  Future addProduct()async{
+static Future addProduct()async{
 
   }
 }
