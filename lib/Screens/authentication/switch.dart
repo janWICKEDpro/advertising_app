@@ -2,6 +2,8 @@ import 'package:advertise/Screens/authentication/login.dart';
 import 'package:advertise/Screens/authentication/signIn.dart';
 import 'package:flutter/material.dart';
 
+import 'authProps.dart';
+
 
 class Authenticate extends StatefulWidget {
   const Authenticate({ Key? key}) : super(key: key);
@@ -20,6 +22,6 @@ class _AuthenticateState extends State<Authenticate> {
   }
   @override
   Widget build(BuildContext context) {
-    return islogin? Login(toggle: toggle) : SignUp(toggle: toggle);
+    return islogiwn? Login(toggle: toggle) : SignUp(toggle: toggle);
   }
 }

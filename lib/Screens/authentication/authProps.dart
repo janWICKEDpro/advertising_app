@@ -11,6 +11,7 @@ TextEditingController? passwordControllerLogin;
 
 final signUpKey = GlobalKey<FormState>();
 
+bool islogiwn =true;
 FocusNode? emailFocusSignUp;
 FocusNode? userNameFocusSignUp;
 FocusNode? passwordFocusSignUp;

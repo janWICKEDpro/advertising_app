@@ -3,7 +3,7 @@ import 'package:advertise/authenticationMethods/authentication.dart';
 import 'package:flutter/material.dart';
 
 class SignUp extends StatefulWidget {
- final Function? toggle;
+ final  Function? toggle;
   const SignUp({ Key? key,this.toggle }) : super(key: key);
 
   @override
@@ -224,7 +224,7 @@ class _SignUpState extends State<SignUp> {
                                 setState(() {
                                   if(signUpKey.currentState!.validate()){
                                     isLoading =!isLoading;
-                                    AuthService().createAccount(name:usernameControllerSignUp!.text , email: emailControllerSignUp!.text, password: passwordControllerSignUp!.text,contact: contactControllerSignUP.),
+                                    AuthService().createAccount(name:usernameControllerSignUp!.text , email: emailControllerSignUp!.text, password: passwordControllerSignUp!.text,contact: 12345);
                                   }
                                 });
                               },
@@ -263,9 +263,11 @@ class _SignUpState extends State<SignUp> {
                           alignment: Alignment.bottomCenter,
                           child: InkWell(
                             onTap: (){
-                             
-                                widget.toggle!();
-                             
+                                //widget.toggle!();
+                                setState(() {
+                                  islogiwn =!islogiwn;
+                                });
+                                print('hi');
                             },
                             child: Row(
                               children: [
