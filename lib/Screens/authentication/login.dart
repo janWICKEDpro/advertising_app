@@ -184,10 +184,7 @@ class _LoginState extends State<Login> {
                           child: InkWell(
                             onTap: (){
                                  //widget.toggle!();
-                                 setState(() {
-                                   islogiwn =!islogiwn;
-                                 });
-                                print("hi");  
+                                 
                             },
                             child: Row(
                               children: [
