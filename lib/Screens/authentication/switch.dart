@@ -14,14 +14,15 @@ class Authenticate extends StatefulWidget {
 
 class _AuthenticateState extends State<Authenticate> {
   bool islogin= false;
-  void toggle (){
+  bool toggle (){
     print('hi');
     setState(() {
       islogin = !islogin;
     });
+    return islogin;
   }
   @override
   Widget build(BuildContext context) {
-    return islogiwn? Login(toggle: toggle) : SignUp(toggle: toggle);
+    return islogin? Login(toggle: toggle) : SignUp(toggle: toggle);
   }
 }

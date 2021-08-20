@@ -14,7 +14,10 @@ static Future addUser({
 final docRef= firebase.collection('User').doc(id);
 await docRef.set(
   <String, dynamic>{
-
+    "ID":id,
+    "NAME": username,
+    "EMAIL": email,
+    "CONTACT":contact
   }
 );
 
