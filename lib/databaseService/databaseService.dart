@@ -3,7 +3,7 @@ final firebase = FirebaseFirestore.instance;
 
 class DatabaseMethods{
 
-//add user to the database
+//add a user to the database
 static Future addUser({
   required String username,
   required String email,
