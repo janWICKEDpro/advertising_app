@@ -25,6 +25,6 @@ await docRef.set(
 
 // store image to database
 static Future addProduct()async{
-//to be implemented
+//todo be implemented
   }
 }
