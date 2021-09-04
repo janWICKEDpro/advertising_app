@@ -30,9 +30,11 @@ static Future addProduct(
   String title,
   String price,
   String image,
-  String des
+  
 )async{
 //todo be implemented
-final docRef = await firebase.collection('').doc()
+//add a product into its appropriate category .
+//probably our procuct collection should have other collections named after the different categories
+final docRef = await firebase.collection('').doc(title)
   }
 }
