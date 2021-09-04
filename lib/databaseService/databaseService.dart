@@ -26,7 +26,13 @@ await docRef.set(
 // store image to database
 
 //add a product to db
-static Future addProduct()async{
+static Future addProduct(
+  String title,
+  String price,
+  String image,
+  String des
+)async{
 //todo be implemented
+final docRef = await firebase.collection('').doc()
   }
 }
