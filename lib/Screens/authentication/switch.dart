@@ -15,7 +15,6 @@ class Authenticate extends StatefulWidget {
 class _AuthenticateState extends State<Authenticate> {
   bool islogin= false;
   bool toggle (){
-    print('hi');
     setState(() {
       islogin = !islogin;
     });
