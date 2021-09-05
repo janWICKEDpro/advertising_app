@@ -35,6 +35,6 @@ static Future addProduct(
 //todo be implemented
 //add a product into its appropriate category .
 //probably our procuct collection should have other collections named after the different categories
-final docRef =await firebase.collection('').collection('');
+final docRef =await firebase.collection('').doc().collection();
   }
 }
