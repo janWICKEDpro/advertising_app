@@ -5,13 +5,14 @@ final firebase = FirebaseFirestore.instance;
 class DatabaseMethods{
 
 //add a user to the database
-static Future addUser({
+static Future<bool> addUser({
   required String username,
   required String email,
   required int contact,
   required String id,
 }
 )async{
+  try{
 final docRef= firebase.collection('User').doc(id);
 await docRef.set(
   <String, dynamic>{
@@ -21,14 +22,23 @@ await docRef.set(
     "CONTACT":contact
   }
 );
+return true;
+}catch(e){
+  return false;
+}
 
 }
 
 // store image to database
+static Future<bool> addImage()async{
+
+}
+
 
 //add a product to db
-static Future addProduct(Product product)async{
+static Future<bool> addProduct(Product product)async{
 //todo be implemented
+try{
 final productRef= await firebase.collection('PRODUCT').doc(product.title).set(
    <String,dynamic>{
      'Category': product.category,
@@ -42,5 +52,9 @@ final productRef= await firebase.collection('PRODUCT').doc(product.title).set(
 
          }
       );
+   return true;
+}catch(e){
+  return false;
+}
     }
 }
