@@ -10,4 +10,13 @@ int? contact;
 DateTime? date;
 categories? category;
 
+Product({
+    this.title,
+    this.category,
+    this.contact,
+    this.date,
+    this.description, 
+    this.link,
+    this.name, 
+    this.price});
 }

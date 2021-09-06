@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:advertise/objects/product.dart';
 final firebase = FirebaseFirestore.instance;
 
 class DatabaseMethods{
@@ -26,15 +27,20 @@ await docRef.set(
 // store image to database
 
 //add a product to db
-static Future addProduct(
-  String title,
-  String price,
-  String image,
-  
-)async{
+static Future addProduct(Product product)async{
 //todo be implemented
-//add a product into its appropriate category .
-//probably our procuct collection should have other collections named after the different categories
-final docRef =await firebase.collection('').doc().collection();
-  }
+final productRef= await firebase.collection('PRODUCT').doc(product.title).set(
+   <String,dynamic>{
+     'Category': product.category,
+     'Contact':product.contact,
+     'Date':DateTime.now(),
+     'Description':product.description,
+     'Image': product.link,
+     'Name':product.name,
+     'Price': product.price,
+     'Title':product.title
+
+         }
+      );
+    }
 }
