@@ -62,7 +62,7 @@ class _AddProductState extends State<AddProduct> {
                     Padding(
                       padding: const EdgeInsets.only(top:10.0,left: 10.0,right: 10.0),
                       child:DropdownButtonFormField(
-                        items: ,
+                        items:[] ,
                         value: ,
                         validator: ,
                         focusNode: categoriesFocus,
