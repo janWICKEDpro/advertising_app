@@ -24,6 +24,7 @@ await docRef.set(
 );
 return true;
 }catch(e){
+  print(e);
   return false;
 }
 
@@ -54,7 +55,7 @@ final productRef= await firebase.collection('PRODUCT').doc(product.title).set(
       );
    return true;
 }catch(e){
-  printf(e);
+  print(e);
   return false;
 }
     }
