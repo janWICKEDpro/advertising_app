@@ -1,6 +1,7 @@
 import 'package:advertise/databaseService/databaseService.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:advertise/objects/product.dart';
 
 class ImageSelector extends StatefulWidget {
   // may have to change
@@ -84,6 +85,8 @@ class _ImageSelectorState extends State<ImageSelector> {
                        ],
                      ), onPressed: (){
                       
+                     Product product = Product(); 
+                      DatabaseMethods.addProduct(product);
                       //preview will be implemented later
                       // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>PreviewAdvert()));
                       },
