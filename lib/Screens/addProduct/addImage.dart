@@ -1,11 +1,14 @@
-import 'dart:io';
-
-import 'package:advertise/Screens/addProduct/previewAdvert.dart';
+import 'package:advertise/databaseService/databaseService.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
 class ImageSelector extends StatefulWidget {
-  const ImageSelector({ Key? key }) : super(key: key);
+  // may have to change
+  final String? title;
+  final String? description;
+  final dynamic category;
+  final int? price;
+  const ImageSelector({ Key? key, this.category, this.description, this.title, this.price }) : super(key: key);
 
   @override
   _ImageSelectorState createState() => _ImageSelectorState();
@@ -80,7 +83,9 @@ class _ImageSelectorState extends State<ImageSelector> {
                         Icon(Icons.keyboard_arrow_right_outlined),
                        ],
                      ), onPressed: (){
-                       Navigator.of(context).push(MaterialPageRoute(builder: (context)=>PreviewAdvert()));
+                      
+                      //preview will be implemented later
+                      // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>PreviewAdvert()));
                       },
                     )
                   ],

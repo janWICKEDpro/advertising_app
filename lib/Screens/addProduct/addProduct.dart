@@ -1,4 +1,5 @@
 import 'package:advertise/Screens/addProduct/addImage.dart';
+import 'package:advertise/enums/categories.dart';
 import 'package:advertise/colorConstants.dart';
 import 'package:flutter/material.dart';
 import 'addFormprops.dart';
@@ -12,7 +13,8 @@ class AddProduct extends StatefulWidget {
 }
 
 class _AddProductState extends State<AddProduct> {
- 
+ int? price;
+ categories? cat = categories.none;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,8 +48,8 @@ class _AddProductState extends State<AddProduct> {
                     Padding(
                       padding: const EdgeInsets.only(top:10.0,left: 10.0,right: 10.0),
                       child: TextFormField(
-                        controller: priceController,
                         keyboardType: TextInputType.number,
+                       controller: priceController,
                         decoration: InputDecoration(labelText: "Price",
                         border: OutlineInputBorder(),
                         
@@ -62,9 +64,35 @@ class _AddProductState extends State<AddProduct> {
                     Padding(
                       padding: const EdgeInsets.only(top:10.0,left: 10.0,right: 10.0),
                       child:DropdownButtonFormField(
-                        items:[] ,
-                        value: ,
-                        validator: ,
+                        items:[
+                          DropdownMenuItem(
+                          value: categories.clothes,
+                          child: Text("Clothes")
+                          ),
+                          DropdownMenuItem(
+                          value: categories.cosmetics,
+                          child: Text("Cosmetics"),
+                          ),
+                          DropdownMenuItem(
+                          value: categories.tools,
+                          child: Text("Tools"),
+                          ),
+                          DropdownMenuItem(
+                          value: categories.devices,
+                          child: Text("Devices"),
+                          ),
+                        ] ,
+                        value: cat,
+                        onChanged: (categories? val){
+                          setState((){
+                            cat=val;
+                          });
+                        },
+                        validator:(val){
+                          if(val ==categories.none){
+                            print("please a select a corresponding category");
+                          }
+                        } ,
                         focusNode: categoriesFocus,
                       ) ,
                     ),
@@ -96,7 +124,8 @@ class _AddProductState extends State<AddProduct> {
                             child: Text("Next"),
                           ) , 
                           onPressed: (){
-                            Navigator.of(context).push(MaterialPageRoute(builder: (context)=>ImageSelector()));
+                            // conditional access
+                            Navigator.of(context).push(MaterialPageRoute(builder: (context)=>ImageSelector(title:titleController?.text, description: descriptionController?.text, category: cat, price:priceController?.value.text ,)));
                           },
                       ),
                   ],
