@@ -32,7 +32,13 @@ return true;
 
 // store image to database
 static Future<bool> addImage()async{
+try{
 
+return true;
+}catch(e){
+  pri
+  return false;
+}
 }
 
 
