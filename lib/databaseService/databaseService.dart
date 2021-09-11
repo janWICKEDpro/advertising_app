@@ -44,7 +44,6 @@ return true;
 
 //add a product to db
 static Future<bool> addProduct(Product product)async{
-//todo be implemented
 try{
 final productRef= await firebase.collection('PRODUCT').doc(product.title).set(
    <String,dynamic>{
