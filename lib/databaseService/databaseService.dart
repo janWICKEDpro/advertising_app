@@ -36,7 +36,7 @@ try{
 
 return true;
 }catch(e){
-  pri
+  print(e);
   return false;
 }
 }
