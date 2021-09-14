@@ -2,6 +2,7 @@ import 'package:advertise/databaseService/databaseService.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:advertise/objects/product.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class ImageSelector extends StatefulWidget {
   // may have to change
