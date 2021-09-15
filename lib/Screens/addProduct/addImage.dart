@@ -88,7 +88,7 @@ class _ImageSelectorState extends State<ImageSelector> {
                       
                      Product product = Product(title:widget.title, price:widget.price,description: widget.description,category: widget.category); 
                       DatabaseMethods.addProduct(product);
-                      //preview will be implemented later
+                      //preview will be implemented later hopefully
                       // Navigator.of(context).push(MaterialPageRoute(builder: (context)=>PreviewAdvert()));
                       },
                     )
