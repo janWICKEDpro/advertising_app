@@ -67,6 +67,7 @@ final productRef= await firebase.collection('PRODUCT').doc(product.title).set(
 
   //Get categories stream
   Stream getCategories(category cat) {
+    //do something appropriate
    // return firebase.collection('PRODUCT')
   }
 
