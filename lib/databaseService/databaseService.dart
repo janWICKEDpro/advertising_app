@@ -72,5 +72,14 @@ final productRef= await firebase.collection('PRODUCT').doc(product.title).set(
   }
 
   //delete product
+  Future deleteProd()async{
+    try{
+
+      return true;
+    }catch(e){
+
+      return false
+    }
+  }
 
 }
