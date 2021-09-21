@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:advertise/objects/product.dart';
+import 'package:advertise/enums/categories.dart';
 final firebase = FirebaseFirestore.instance;
 
 class DatabaseMethods{
@@ -66,9 +67,8 @@ final productRef= await firebase.collection('PRODUCT').doc(product.title).set(
     }
 
   //Get categories stream
-  Stream getCategories(category cat) {
-    //do something appropriate
-   // return firebase.collection('PRODUCT')
+  Stream getCategories(categories cat) {
+   return firebase.collection('PRODUCT').where('Category',isEqualTo: cat).get()
   }
 
   //delete product
