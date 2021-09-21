@@ -67,9 +67,9 @@ final productRef= await firebase.collection('PRODUCT').doc(product.title).set(
     }
 
   //Get categories stream
-  Stream getCategories(categories cat) {
-   return firebase.collection('PRODUCT').where('Category',isEqualTo: cat).get()
-  }
+  // Stream  getCategories(categories cat) {
+  //  return  firebase.collection('PRODUCT').where('Category',isEqualTo: cat).get()
+  // }
 
   //delete product
   Future deleteProd()async{
