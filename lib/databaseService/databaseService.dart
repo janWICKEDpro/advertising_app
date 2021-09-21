@@ -79,7 +79,7 @@ final productRef= await firebase.collection('PRODUCT').doc(product.title).set(
       return true;
     }catch(e){
 
-      return false
+      return false;
     }
   }
 
