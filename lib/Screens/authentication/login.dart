@@ -175,7 +175,7 @@ class _LoginState extends State<Login> {
                           ],),),
                         )
                     ],
-                    ),
+                    ), 
                     ),
                     Padding(
                       padding: const EdgeInsets.all(12.0),
