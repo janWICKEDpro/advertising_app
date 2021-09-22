@@ -1,4 +1,5 @@
 import 'package:advertise/Screens/authentication/login.dart';
+import 'package:advertise/Screens/authentication/switch.dart';
 import 'package:advertise/Screens/mainView.dart';
 import 'package:advertise/authenticationMethods/authentication.dart';
 import "package:flutter/material.dart";
@@ -15,7 +16,7 @@ class _WrapperState extends State<Wrapper> {
       if(snapshot.hasData){
         return MainView();
       }else {
-        return Login();
+        return Authenticate();
       }
     } ,
     stream:AuthService().authState ,

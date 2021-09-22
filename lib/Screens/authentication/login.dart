@@ -183,7 +183,7 @@ class _LoginState extends State<Login> {
                           alignment: Alignment.bottomCenter,
                           child: InkWell(
                             onTap: (){
-                                 //widget.toggle!();
+                                 widget.toggle!();
                                  
                             },
                             child: Row(
