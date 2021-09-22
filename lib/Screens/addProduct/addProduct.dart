@@ -125,7 +125,7 @@ class _AddProductState extends State<AddProduct> {
                           ) , 
                           onPressed: (){
                             // conditional access
-                            Navigator.of(context).push(MaterialPageRoute(builder: (context)=>ImageSelector(title:titleController?.text, description: descriptionController?.text, category: cat, price:priceController?.value.text ,)));
+                            Navigator.of(context).push(MaterialPageRoute(builder: (context)=>ImageSelector(title:titleController?.text, description: descriptionController?.text, category: cat,)));
                           },
                       ),
                   ],
