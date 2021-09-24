@@ -14,7 +14,7 @@ static Future<bool> addUser({
 }
 )async{
   try{
-final docRef= firebase.collection('User').doc(id);
+final docRef= firebase.collection('USER').doc(id);
 await docRef.set(
   <String, dynamic>{
     "ID":id,
