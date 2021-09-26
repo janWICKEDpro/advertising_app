@@ -199,7 +199,7 @@ class _SignUpState extends State<SignUp> {
                               validator: (confirmPass){
                                 if(confirmPass!.isEmpty){
                                   return "Confirm you password";
-                                }else if(confirmPass!=passwordControllerSignUp.toString()){
+                                }else if(confirmPass!=passwordControllerSignUp!.text){
                                   return "Passwords don't match";
                                 }
                               },

@@ -20,6 +20,12 @@ class _WrapperState extends State<Wrapper> {
       }
     } ,
     stream:AuthService().authState ,
+      initialData: Container(
+        color:  Color(0xff207B6E),
+        child: Center(
+          child: CircularProgressIndicator()
+        ),
+      ),
     );
   }
 }

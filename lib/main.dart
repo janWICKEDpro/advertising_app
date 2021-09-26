@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
         ConnectionState.done) {
       return  MaterialApp(
           debugShowCheckedModeBanner: false,
-          color: primaryColor,
+          color: Colors.black,
           theme: ThemeData(
             focusColor: Colors.white
           ),
