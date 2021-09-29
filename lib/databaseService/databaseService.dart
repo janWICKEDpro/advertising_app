@@ -31,7 +31,7 @@ return true;
 
 }
 
-// store image to database
+//store image to the database
 static Future<bool> addImage()async{
 try{
 
