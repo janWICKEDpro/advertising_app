@@ -75,7 +75,7 @@ final productRef= await firebase.collection('PRODUCT').doc(product.title).set(
   Future deleteProd(String id)async{
     try{
       //todo: get product by id and either delete or set status to deleted
-    await firebase.collection('PRODUCT').doc(id);
+    await firebase.collection('PRODUCT').doc(id).delete();
       return true;
     }catch(e){
 
