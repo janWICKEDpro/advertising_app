@@ -33,6 +33,7 @@ class _AddProductState extends State<AddProduct> {
                     Padding(
                       padding: const  EdgeInsets.only(top:10.0,left: 10.0,right: 10.0),
                       child: TextFormField(
+                        autovalidate: true,
                         controller: titleController,
                         decoration: InputDecoration(
                           labelText: "Title",
@@ -48,6 +49,7 @@ class _AddProductState extends State<AddProduct> {
                     Padding(
                       padding: const EdgeInsets.only(top:10.0,left: 10.0,right: 10.0),
                       child: TextFormField(
+                        autovalidate: true,
                         keyboardType: TextInputType.number,
                        controller: priceController,
                         decoration: InputDecoration(labelText: "Price",
@@ -65,6 +67,10 @@ class _AddProductState extends State<AddProduct> {
                       padding: const EdgeInsets.only(top:10.0,left: 10.0,right: 10.0),
                       child:DropdownButtonFormField(
                         items:[
+                          DropdownMenuItem(
+                              value: categories.none,
+                              child: Text("select a category...")
+                          ),
                           DropdownMenuItem(
                           value: categories.clothes,
                           child: Text("Clothes")
@@ -123,10 +129,17 @@ class _AddProductState extends State<AddProduct> {
                           child: Container(
                             child: Text("Next"),
                           ) , 
-                          onPressed: (){
-                            
-                            Navigator.of(context).push(MaterialPageRoute(builder: (context)=>ImageSelector(title:titleController?.text, description: descriptionController?.text, category: cat,)));
-                          },
+                          onPressed: () {
+                            if (addProdKey.currentState!.validate()) {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) =>
+                                      ImageSelector(
+                                        title: titleController?.text,
+                                        description: descriptionController
+                                            ?.text,
+                                        category: cat,)));
+                            }
+                          }
                       ),
                   ],
                 ),
