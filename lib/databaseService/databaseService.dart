@@ -31,7 +31,7 @@ return true;
 
 }
 
-// store image to database
+//store image to the database
 static Future<bool> addImage()async{
 try{
 
@@ -72,10 +72,10 @@ final productRef= await firebase.collection('PRODUCT').doc(product.title).set(
   }
 
   //delete product
-  Future deleteProd()async{
+  Future deleteProd(String id)async{
     try{
       //todo: get product by id and either delete or set status to deleted
-
+    await firebase.collection('PRODUCT').doc(id).delete();
       return true;
     }catch(e){
 
