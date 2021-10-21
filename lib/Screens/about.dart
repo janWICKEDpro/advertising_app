@@ -10,7 +10,7 @@ class About extends StatelessWidget {
       body: Container(
         child: Center(
           child: Card(
-            child: Text("h"),
+            child: Text("hi"),
           ),
         ),
       ),
