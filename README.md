@@ -1,4 +1,4 @@
-This is an app created to ease the advetising of products
+This is an app created to ease  advetising  products
 such as shoes, clothes and cosmetics.. in my local community
 
 
